@@ -1,13 +1,12 @@
-import React , { useState, useEffect } from 'react';
+import React , { useState } from 'react';
 import '../scss/Dashboard.scss';
 import 'font-awesome/css/font-awesome.min.css';
 
 
-const Dashboard = ({books, loading}) => {
+const Dashboard = ({books}) => {
     const [query, setQuery] = useState('');
-    const [maxResults, setMaxResults] = useState(10);
+    const [maxResults, setMaxResults] = useState(20);
     const [startIndex, setStartIndex] = useState(1);
-    // const [ books, setBooks] = useState([]);
 
   return (
     
@@ -17,13 +16,14 @@ const Dashboard = ({books, loading}) => {
              <div className="container">
              <div className="row">
              </div>
-                <div class="col-md-12">
-                    <div class="input-group justify-content-sm-center m-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <div className="col-md-12">
+                    <div className="input-group justify-content-sm-center m-3">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text" id="basic-addon1"><i className="fa fa-search" aria-hidden="true"></i></span>
                         </div>
+                    
                             <input type="text" className="form-control" placeholder="Search Book" aria-label="Search Book" aria-describedby="basic-addon1"  placeholder='Book Search'
-                                value={query} onChange={e => setQuery(e.target.value)}></input>        
+                                value={query} onChange={e => setQuery(e.target.value)}></input>  
                     </div>
                 </div>
              </div>
@@ -31,7 +31,7 @@ const Dashboard = ({books, loading}) => {
              <div className="container">
              <div className="row">
              <div className="col-sm-3 m-3">
-                    <div class="input-group justify-content-sm-center m-3">
+                    <div className="input-group justify-content-sm-center m-3">
                             <input type="text" className="form-control" placeholder="Search Book" aria-label="Search Book" aria-describedby="basic-addon1"  placeholder='Book Search'
                                       type='number'
                                       id='maxResults'
@@ -42,7 +42,7 @@ const Dashboard = ({books, loading}) => {
                         </div>
                     </div>
                     <div className="col-sm-3 m-3">
-                    <div class="input-group justify-content-sm-center m-3">
+                    <div className="input-group justify-content-sm-center m-3">
                             <input type="text" className="form-control" placeholder="Search Book" aria-label="Search Book" aria-describedby="basic-addon1"  placeholder='Book Search'
                                          type='number'
                                          id='startIndex'
@@ -69,7 +69,7 @@ const Dashboard = ({books, loading}) => {
             </thead>
             <tbody>
             {
-                books.map(book => (
+               books.map(book => (
                 <tr key={book.id} className="list">
                 <th scope="col">#</th>
                     <td>{book.author}</td>
